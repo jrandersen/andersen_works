@@ -7,7 +7,11 @@ export function Header() {
 
       </Link>
       <a target="_blank" href="https://twitter.com/jasonrandersen" rel="noopener">Follow Me</a>
-      <a className="text-lg">This is now some textn</a>
+      <span className="flex items-center justify-between max-w-3xl px-4 mx-auto py-4">
+      This is now some text!!!
+      </span>
     </div>
+
+
   );
 }
