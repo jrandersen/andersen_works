@@ -1,17 +1,114 @@
 ---
-title: Curtain panle by Level
+title: Curtain panels by level
 slug: /blog/curtainPanelByLevel
 ---
 
-# How to sleect curtain panles ny their level with Python
+# Select curtain panels by level with Python 
 I like investigating workflows. Being able to achieve the same or similar results through multiple means is key to QA/QC not to mention it keeps things interesting. So to that end, I’ve been experimenting to see, using Dynamo, how many ways I could get Revit Curtain Panels by Level. Here are four approaches, enjoy! Know of another way? Let me know.
 
+## First Approach
 The first approach starts with the Level: A critique of this would be that if any Curtain Panels have the incorrect level for any reason you will be picking up that error and moving it forward, just a heads up.
 
+```python
+import clr
+
+    # Import RevitAPI
+    clr.AddReference("RevitAPI")
+    import Autodesk
+    from Autodesk.Revit.DB import *
+
+    # Import DocumentManager and TransactionManager
+    clr.AddReference("RevitServices")
+    import RevitServices
+    from RevitServices.Persistence import DocumentManager
+    from RevitServices.Transactions import TransactionManager
+
+    # Import ToDSType(bool) extension method
+    clr.AddReference("RevitNodes")
+    import Revit
+    clr.ImportExtensions(Revit.Elements)
+    clr.ImportExtensions(Revit.GeometryConversion)
+
+    import clr
+    clr.AddReference('ProtoGeometry')
+    from Autodesk.DesignScript.Geometry import *
+
+    doc =  DocumentManager.Instance.CurrentDBDocument
+    app =  DocumentManager.Instance.CurrentUIApplication.Application
+
+    fec = FilteredElementCollector(doc)
+    fec.OfCategory(BuiltInCategory.OST_CurtainWallPanels)
+    fec.OfClass(FamilyInstance)
+    
+    famTypeItr = fec.GetElementIdIterator()
+    famTypeItr.Reset()
+
+    inst = []
+    host = []
+    for item in famTypeItr:
+        famtypeID = item
+        famInst = doc.GetElement(famtypeID)
+        inst.append(famInst)
+        host.append(famInst.Host)   
+    #Assign your output to the OUT variable
+    OUT = inst, host
+```
+
+## Second Approach
 The second approach starts with the category of Curtain Panel. We first get the panels then their Host, from there we filter them by the wall base constraint to get the level. This starts to be a more robust workflow because base constraints are more reliable:
 
-This third approach references the above knowledge about the levels and base constraints. When moving into Python to do all the collecting, I start with Curtain Panels and then get the Host.
-
+## Final Approach
 The final approach is a Python method combining all elements from above to do all the filtering and providing the Element as the output. In the code below you can see many of the same operators at play from the Dynamo Graph to set up If/Then’s and manage Strings and Elements. As a visual learner, I love the use of Dynamo as a method to describe code, quite a powerful use case.
 
-The final approach is a Python method combining all elements from above to do all the filtering and providing the Element as the output. In the code below you can see many of the same operators at play from the Dynamo Graph to set up If/Then’s and manage Strings and Elements. As a visual learner, I love the use of Dynamo as a method to describe code, quite a powerful use case.
+```python
+import clr
+
+# Import RevitAPI
+clr.AddReference("RevitAPI")
+import Autodesk
+from Autodesk.Revit.DB import *
+
+# Import DocumentManager and TransactionManager
+clr.AddReference("RevitServices")
+import RevitServices
+from RevitServices.Persistence import DocumentManager
+from RevitServices.Transactions import TransactionManager
+
+# Import ToDSType(bool) extension method
+clr.AddReference("RevitNodes")
+import Revit
+clr.ImportExtensions(Revit.Elements)
+clr.ImportExtensions(Revit.GeometryConversion)
+
+import clr
+clr.AddReference('ProtoGeometry')
+from Autodesk.DesignScript.Geometry import *
+
+doc =  DocumentManager.Instance.CurrentDBDocument
+app =  DocumentManager.Instance.CurrentUIApplication.Application
+
+#levels coming in
+level = IN[0]
+
+fec = FilteredElementCollector(doc)
+fec.OfCategory(BuiltInCategory.OST_CurtainWallPanels)
+fec.OfClass(FamilyInstance)
+
+famTypeItr = fec.GetElementIdIterator()
+famTypeItr.Reset()
+
+#global Variables
+cpAtLevel = []
+error =[]
+
+for item in famTypeItr:
+    famInst = doc.GetElement(item)
+    if famInst.Host.Parameter["Base Constraint"].AsValueString() == level.Name.ToString():
+        cpAtLevel.append(famInst)
+    else:
+        error.append("appears to be no Curtain Panels here...")
+#Assign your output to the OUT variable
+OUT =  cpAtLevel
+```
+
+All of this came about because we noticed that certain families, when embedded into Curtain Panels, were not reading the correct level. This is most prominent with Doors, [like this issue here](https://bimchapters.blogspot.com/2018/02/curtain-wall-door-schedules-on-wrong.html). Depending on the layout of your model you can use the ‘Room:Level’ to sidestep this issue, but in some cases, the family will not be reading a room, such as Exterior Curtain Walls. Therefore with the above workflows, you should be able to get the ‘real’ level of the Curtain Panel through accessing the Wall that hosts the panel.
