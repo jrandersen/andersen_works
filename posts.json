@@ -1,14 +1,19 @@
 {
   "posts": [
     {
-      "slug": "/blog/elevations",
-      "date": "December 23, 2014",
-      "title": "Elevations"
+      "slug": "/blog/pointCloudDynamo",
+      "date": "April 26, 2015",
+      "title": "Pointclouds in Dynamo"
     },
     {
-      "slug": "/blog/pointclouds",
-      "date": "June 16, 2013",
-      "title": "Pointclouds in Dynamo"
+      "slug": "/blog/curtainPanelByLevel",
+      "date": "April 13, 2015",
+      "title": "Selecting curtain panels by Level"
+    },
+    {
+      "slug": "/blog/elevationMarker",
+      "date": "March 30, 2015",
+      "title": "Get empty elevation markers"
     }
   ]
 }
