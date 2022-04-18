@@ -1,0 +1,66 @@
+---
+title: Nested Family
+slug: /blog/nestedFamily
+---
+
+# Managing nested families in Revit with Python
+One thing that always comes up in scheduling items are the use of Nested families. One major aspect of this is that it is difficult from the schedule to see what the relationship between that families is. In the next week of so I will give a use case for this. but till then here is a node that will pull the relationship from the Revit API. Use this in conjunction with SetParameters to make the implicit more explicit in your schedules.
+
+```python
+import clr
+
+# Import RevitAPI
+clr.AddReference("RevitAPI")
+import Autodesk
+from Autodesk.Revit.DB import *
+import System.Collections.Generic
+from System.Collections.Generic import List
+
+# Import DocumentManager and TransactionManager
+clr.AddReference("RevitServices")
+import RevitServices
+from RevitServices.Persistence import DocumentManager
+from RevitServices.Transactions import TransactionManager
+
+# Import ToDSType(bool) extension method
+clr.AddReference("RevitNodes")
+import Revit
+clr.ImportExtensions(Revit.Elements)
+doc =  DocumentManager.Instance.CurrentDBDocument
+app =  DocumentManager.Instance.CurrentUIApplication.Application
+
+#elements coming in
+elementIN = IN[0]
+
+#UnwrapElements
+elements = []
+for i in elementIN:
+    elements.append(UnwrapElement(i))
+
+#variables
+output = []
+parents = []
+superComponents = []
+error = []
+
+#work
+for f in elements:
+    try:
+        elemlist = []
+        for elemid in f.GetSubComponentIds():
+            elemlist.append(doc.GetElement(elemid))
+        superComponents.append(elemlist)
+        if f.SuperComponent == None:
+            parents.append(f)
+        else:
+            continue
+    except:
+        error.append("Something Wrong Here")
+        error.append(f)     
+        
+output.append(parents)
+output.append(superComponents)
+output.append(error)
+
+OUT = output
+```

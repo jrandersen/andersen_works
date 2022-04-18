@@ -7,7 +7,6 @@ require("prismjs/components/prism-python")
 require("prismjs/components/prism-csharp")
 require("prismjs/components/prism-javascript")
 
-
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />
 }

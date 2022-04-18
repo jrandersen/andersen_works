@@ -11,9 +11,29 @@
       "title": "Selecting curtain panels by Level"
     },
     {
+      "slug": "/blog/panelAreaCalc",
+      "date": "April 7, 2015",
+      "title": "Light & Air calcs using window area, with Python"
+    },
+    {
       "slug": "/blog/elevationMarker",
       "date": "March 30, 2015",
-      "title": "Get empty elevation markers"
+      "title": "Get empty elevation markers to delete"
+    },
+    {
+      "slug": "/blog/nestedFamily",
+      "date": "March 29, 2015",
+      "title": "Manage nested families in revit, with python"
+    },
+    {
+      "slug": "/blog/fireRatingDynamo",
+      "date": "March 22, 2015",
+      "title": "Manage wall fire rating graphics in Dynamo"
+    },
+    {
+      "slug": "/blog/areasToRooms",
+      "date": "March 16, 2015",
+      "title": "Group revit rooms by areas in which they are contained"
     }
   ]
 }
