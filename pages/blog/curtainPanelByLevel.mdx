@@ -4,7 +4,14 @@ slug: /blog/curtainPanelByLevel
 ---
 
 # How to sleect curtain panles ny their level with Python
+I like investigating workflows. Being able to achieve the same or similar results through multiple means is key to QA/QC not to mention it keeps things interesting. So to that end, I’ve been experimenting to see, using Dynamo, how many ways I could get Revit Curtain Panels by Level. Here are four approaches, enjoy! Know of another way? Let me know.
 
-<figure class="video_container">
-  <iframe title="vimeo-player" src="https://player.vimeo.com/video/123620912?h=69a74b37ea" width="640" height="360" frameborder="0" allowfullscreen></iframe>
-</figure>
+The first approach starts with the Level: A critique of this would be that if any Curtain Panels have the incorrect level for any reason you will be picking up that error and moving it forward, just a heads up.
+
+The second approach starts with the category of Curtain Panel. We first get the panels then their Host, from there we filter them by the wall base constraint to get the level. This starts to be a more robust workflow because base constraints are more reliable:
+
+This third approach references the above knowledge about the levels and base constraints. When moving into Python to do all the collecting, I start with Curtain Panels and then get the Host.
+
+The final approach is a Python method combining all elements from above to do all the filtering and providing the Element as the output. In the code below you can see many of the same operators at play from the Dynamo Graph to set up If/Then’s and manage Strings and Elements. As a visual learner, I love the use of Dynamo as a method to describe code, quite a powerful use case.
+
+The final approach is a Python method combining all elements from above to do all the filtering and providing the Element as the output. In the code below you can see many of the same operators at play from the Dynamo Graph to set up If/Then’s and manage Strings and Elements. As a visual learner, I love the use of Dynamo as a method to describe code, quite a powerful use case.
