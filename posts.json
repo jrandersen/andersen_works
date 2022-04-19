@@ -34,6 +34,16 @@
       "slug": "/blog/areasToRooms",
       "date": "March 16, 2015",
       "title": "Group revit rooms by areas in which they are contained"
+    },
+    {
+      "slug": "/blog/revitFilteringDy",
+      "date": "March 16, 2015",
+      "title": "Revit Filtering with Dynamo"
+    },
+    {
+      "slug": "/blog/revitDataPHPP",
+      "date": "July 18, 2015",
+      "title": "Revit, Data & PHPP"
     }
   ]
 }

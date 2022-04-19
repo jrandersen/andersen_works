@@ -1,0 +1,41 @@
+---
+title: Revit Filtering with Dynamo
+slug: /blog/revitFilterDy
+---
+
+<figure class="video_container">
+  <iframe title="vimeo-player" src="https://player.vimeo.com/video/123582959" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+</figure>
+
+# Revit filtering with Dynamo
+Ever wounder how to filter by different Instance and Type parameters? In the video I use a different method to filter than I do in the example below. It’s important to know what String.Contains and == Nodes are used for, and tailor to each specific task. In general the String.contain is a looser understanding than the == node. Sometimes teh == node is tough when dealing with strings and integers but each case can be different.
+
+This workflow is made from nodes that are OOTB Dynamo, except the last image, which are custom nodes grouping things described earlier. We start with accessing the Instance Parameters. Most Selectors will give you the Element, connecting this directly into the Element.Parameters node will give you the instance Parameters and Values for all elements.
+
+![image](/images/dyFilter1.jpg)
+---
+
+Next we get the Type Parameters of the Family. Here we will use the FamliyInstance.Symbol node. If you feed the elements into it the result will be Type parameters.
+
+![image](/images/dyFilter2.jpg)
+---
+
+Lastly will be the Family Parameters connecting the output of the FamilyInstance.Symbol node into the FamilySymbol.Family node will give you the Parameter values of the Family symbol. These are read only, unless you open the FamilyDoc [havent tried this…] however we can filter by these values.
+
+![image](/images/dyFilter3.jpg)
+---
+
+Bringing all this together, now that we have access to the parameters values we will use the  ==  node (equal) we will find which elements in the list have a parameter value equal to a static input. The result is a list equally long as the first that will list True/False for each element . This sets up the use of  FilterBoolean Mask to filter the original list of elements.
+
+![image](/images/dyFilter4.jpg)
+---
+
+Finally, everything that passes to this stage results in a filtered list of Elements by the Parameter Value. This can be a basis for quantifying, verifying and possible updating certain Elements. Here is a filter that shows which Specialty Equipment is Shared!
+
+![image](/images/dyFilter5.jpg)
+---
+
+Going a little farther we can do compound filtering to get elements on specific levels and with specific data. Here I am filtering first for 1oth Floor [watch out for this as some family nesting throws off the correct level, more to come on that!) and then we filter for a specific piece of Equipment by model number.
+
+![image](/images/dyFilter6.jpg)
+---
