@@ -1,0 +1,63 @@
+---
+title: Revit macro for setting door handedness
+slug: /blog/revitMacroHandedness
+---
+
+## Revit macro for setting door handedness
+Been getting more in the api and have this solution for adding a “LH” or “RH” to a parameter in the doors. It adds it to a parameter called “Handedness” though this could be anything. I put this together from multiple sources, and it uses the FacingFliped & HandFliped parameter to assign the handedness. This works very well as it is hooked to the flip controls so no chasing down information. Next it starts a transaction to update the parameter in the door. A try catch block deals with the ones that do not have the parameter for handedness. Next will be to add the parameter to the door in the catch block…
+
+```CSharp
+public void GetDoorsSetHandednessParam()
+{	
+Document doc = this.ActiveUIDocument.Document;
+
+int updatedDoors = 0;
+int doorWithNoParam = 0;
+string handedness = "";
+	           
+ElementClassFilter familyInstanceFilter = new ElementClassFilter(typeof(FamilyInstance));
+ElementCategoryFilter doorsCategoryfilter = new ElementCategoryFilter(BuiltInCategory.OST_Doors);
+LogicalAndFilter doorInstancesFilter = new LogicalAndFilter(familyInstanceFilter, doorsCategoryfilter);
+FilteredElementCollector collector = new FilteredElementCollector(doc);
+ICollection<Element> doors = collector.WherePasses(doorInstancesFilter).ToElements();
+			
+     //Run through each door as family instance and determine handedness and store in param// 
+     foreach (FamilyInstance e in doors)
+       { 
+       if (e.FacingFlipped ^ e.HandFlipped)
+         {
+         handedness= "LH";
+         }
+       else
+         {
+         handedness = "RH";
+         }
+      //start transaction to update the handedness param in each door//
+      using (Transaction t = new Transaction(doc))
+	  {
+	   t.Start("Add handedness to door...");
+		{
+		//this will catch exception if doors do not have handedness param//
+		try
+		{
+		e.get_Parameter("Handedness").Set(handedness);
+		} 
+		catch (Exception) 
+		{
+		doorWithNoParam +=1;
+		continue;
+		}
+		t.Commit();
+		updatedDoors += 1;
+	        }
+        	}
+	}
+         //give results//
+         TaskDialog resultsDialog = new TaskDialog("Add Handedness to Non-SF Doors Results");
+ 		       resultsDialog.MainContent = "THE FOLLOWING HAPPENED:" + "\n" + "\n"
+ 			+ updatedDoors + "  DOORS WERE UPDATED" + "\n"
+ 			+ doorWithNoParam + "  DOORS WITHOUT HANDEDNESS PARAMETER WERE NOT " + "\n";
+			resultsDialog.ExpandedContent = "PLEASE ADD THE HANDEDNESS SHARED PARAMETER TO THE DOORS AND RE-RUN THE MACRO" + "\n";
+ 			resultsDialog.Show();  
+}
+```
