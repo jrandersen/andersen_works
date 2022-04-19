@@ -58,17 +58,22 @@
     {
       "slug": "/blog/searchSetsNavis2",
       "date": "January 14, 2014",
-      "title": "Dynamo Sheet Counter"
+      "title": "Search Sets in Navis [Part 2]"
     },
     {
       "slug": "/blog/revitMacroHandedness",
       "date": "February 09, 2014",
-      "title": "Dynamo Sheet Counter"
+      "title": "Macro for setting door handedness"
     },
     {
       "slug": "/blog/searchSetsNavis1",
       "date": "July 15, 2014",
-      "title": "Dynamo Sheet Counter"
+      "title": "Search Sets in Navis [Part 1]"
+    },
+    {
+      "slug": "/blog/lightLSMSHF",
+      "date": "July 15, 2014",
+      "title": "Light Boxes for LSMSHF"
     }
   ]
 }
