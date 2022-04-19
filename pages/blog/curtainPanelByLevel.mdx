@@ -9,7 +9,7 @@ I like investigating workflows. Being able to achieve the same or similar result
 ## First Approach
 The first approach starts with the Level: A critique of this would be that if any Curtain Panels have the incorrect level for any reason you will be picking up that error and moving it forward, just a heads up.
 
-```Python
+<code className="python">
 import clr
 
 # Import RevitAPI
@@ -52,7 +52,7 @@ for item in famTypeItr:
     host.append(famInst.Host)   
 #Assign your output to the OUT variable
 OUT = inst, host
-```
+</code>
 
 ## Second Approach
 The second approach starts with the category of Curtain Panel. We first get the panels then their Host, from there we filter them by the wall base constraint to get the level. This starts to be a more robust workflow because base constraints are more reliable:
