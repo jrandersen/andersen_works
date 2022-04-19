@@ -42,8 +42,18 @@
     },
     {
       "slug": "/blog/revitDataPHPP",
-      "date": "July 18, 2015",
+      "date": "July 18, 2014",
       "title": "Revit, Data & PHPP"
+    },
+    {
+      "slug": "/blog/dynamoDataRevit",
+      "date": "May 26, 2014",
+      "title": "Dynamo, Data & Revit"
+    },
+    {
+      "slug": "/blog/dynamoSheetCounter",
+      "date": "May 9, 2014",
+      "title": "Dynamo Sheet Counter"
     }
   ]
 }
