@@ -9,49 +9,49 @@ I like investigating workflows. Being able to achieve the same or similar result
 ## First Approach
 The first approach starts with the Level: A critique of this would be that if any Curtain Panels have the incorrect level for any reason you will be picking up that error and moving it forward, just a heads up.
 
-```python
+```Python
 import clr
 
-    # Import RevitAPI
-    clr.AddReference("RevitAPI")
-    import Autodesk
-    from Autodesk.Revit.DB import *
+# Import RevitAPI
+clr.AddReference("RevitAPI")
+import Autodesk
+from Autodesk.Revit.DB import *
 
-    # Import DocumentManager and TransactionManager
-    clr.AddReference("RevitServices")
-    import RevitServices
-    from RevitServices.Persistence import DocumentManager
-    from RevitServices.Transactions import TransactionManager
+# Import DocumentManager and TransactionManager
+clr.AddReference("RevitServices")
+import RevitServices
+from RevitServices.Persistence import DocumentManager
+from RevitServices.Transactions import TransactionManager
 
-    # Import ToDSType(bool) extension method
-    clr.AddReference("RevitNodes")
-    import Revit
-    clr.ImportExtensions(Revit.Elements)
-    clr.ImportExtensions(Revit.GeometryConversion)
+# Import ToDSType(bool) extension method
+clr.AddReference("RevitNodes")
+import Revit
+clr.ImportExtensions(Revit.Elements)
+clr.ImportExtensions(Revit.GeometryConversion)
 
-    import clr
-    clr.AddReference('ProtoGeometry')
-    from Autodesk.DesignScript.Geometry import *
+import clr
+clr.AddReference('ProtoGeometry')
+from Autodesk.DesignScript.Geometry import *
 
-    doc =  DocumentManager.Instance.CurrentDBDocument
-    app =  DocumentManager.Instance.CurrentUIApplication.Application
+doc =  DocumentManager.Instance.CurrentDBDocument
+app =  DocumentManager.Instance.CurrentUIApplication.Application
 
-    fec = FilteredElementCollector(doc)
-    fec.OfCategory(BuiltInCategory.OST_CurtainWallPanels)
-    fec.OfClass(FamilyInstance)
-    
-    famTypeItr = fec.GetElementIdIterator()
-    famTypeItr.Reset()
+fec = FilteredElementCollector(doc)
+fec.OfCategory(BuiltInCategory.OST_CurtainWallPanels)
+fec.OfClass(FamilyInstance)
 
-    inst = []
-    host = []
-    for item in famTypeItr:
-        famtypeID = item
-        famInst = doc.GetElement(famtypeID)
-        inst.append(famInst)
-        host.append(famInst.Host)   
-    #Assign your output to the OUT variable
-    OUT = inst, host
+famTypeItr = fec.GetElementIdIterator()
+famTypeItr.Reset()
+
+inst = []
+host = []
+for item in famTypeItr:
+    famtypeID = item
+    famInst = doc.GetElement(famtypeID)
+    inst.append(famInst)
+    host.append(famInst.Host)   
+#Assign your output to the OUT variable
+OUT = inst, host
 ```
 
 ## Second Approach
