@@ -3,12 +3,54 @@ title: Elevation Tags
 slug: /blog/elevationMarker
 ---
 
-# Delete Empty Elevation Markers
-
 <figure class="video_container">
   <iframe title="vimeo-player" src="https://player.vimeo.com/video/123620912?h=69a74b37ea" width="640" height="360" frameborder="0" allowfullscreen></iframe>
 </figure>
-----
- The above was some elevation madness
 
+# Delete Empty Elevation Markers in Dynamo with Python
+In this video I show how to use teh Revit API to select, filter and dleete elevation markers that do not have associated views.
+
+## Code
  Here is the Python to get the Markers that have no Elevation on them.
+
+ ```Python
+# Default imports
+import clr
+# Import RevitAPI
+clr.AddReference("RevitAPI")
+import Autodesk
+from Autodesk.Revit.DB import *
+# Import DocumentManager and TransactionManager
+clr.AddReference("RevitServices")
+import RevitServices
+from RevitServices.Persistence import DocumentManager
+from RevitServices.Transactions import TransactionManager
+# Import ToDSType(bool) extension method
+clr.AddReference("RevitNodes")
+import Revit
+clr.ImportExtensions(Revit.Elements)
+doc =  DocumentManager.Instance.CurrentDBDocument
+app =  DocumentManager.Instance.CurrentUIApplication.Application
+
+#The input to this node will be stored in the IN[0] variable and unwrap element
+elements = UnwrapElement(IN[0])
+
+#variables
+output = []
+elemsNotElevation = []
+elemsHasElevation = []
+
+#iterate through list and sort
+for e in elements:
+if e.HasElevations() == False:
+elemsNotElevation.append(e)
+else:
+elemsHasElevation.append(e)
+
+#compile output
+output.append(elemsNotElevation)
+output.append(elemsHasElevation)
+
+#Assign your output to the OUT variable
+OUT = output
+```

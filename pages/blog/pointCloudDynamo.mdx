@@ -6,4 +6,21 @@ slug: /blog/pointCloudDynamo
 # Point Clouds in Dynamo
 One of the really nice things about Dynamo is the relative ease with which we can integrate formerly separate entities. I am starting to use this platform to weave [Revit/ReCaps](https://thebuildingcoder.typepad.com/blog/2014/10/point-cloud-indexing-update.html) point cloud methods with other useful attributes of open source point cloud processing like the PCL [Point Cloud Library](https://pointclouds.org/) This is a really exciting time!
 
+## Importing
 So here are some first forays. Importing RCS files, current just RCS but it appears we will be able to import all known file types and actually be able to construct our own import with the [PointCloud Client](https://knowledge.autodesk.com/support/revit/learn-explore/caas/CloudHelp/cloudhelp/2014/ENU/Revit/files/GUID-B80DBCF1-56A8-4864-A0CD-181466E0EDE8-htm.html)
+
+![image](/images/pcDynamoImport.gif)
+---
+
+## Point Cloud Filtering
+Creating PointCloudFilters by BoundingBox. This will be really helpful in dealing with the shear quantity of points in processing. We can construct a BB with any Revit Element or Rooms like this.
+
+![image](/images/pcDynamoElementFilter.gif)
+---
+
+## To Dynamo Points
+
+Converting PointCloudPoints to Dynamo Points and the ability to increase and decrease the density that are Read into the Dynamo environment. This is just the beginning, there will definitely have tons more to come…
+
+![image](/images/pcDynamoModel.jpg)
+---
