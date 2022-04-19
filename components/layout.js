@@ -2,6 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import { MDXProvider } from '@mdx-js/react';
 import { Header } from './header';
+import Gist from "react-gist";
 
 const components = {};
 
