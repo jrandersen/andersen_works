@@ -6,8 +6,8 @@ export default function Home(props) {
   return (
     <>
       <Header />
-      <link rel="icon" type="image/x-icon" href="/images/favicon.ico"></link>
       <div className="max-w-3xl px-8 mx-auto py-4">
+      <link rel="icon" type="image/x-icon" href="/favicon.ico"></link>
         <ul className="space-y-3">
           {posts.posts.map((p) => (
             <li key={p.slug} className="flex items-center space-x-3">
