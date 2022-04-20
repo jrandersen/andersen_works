@@ -5,6 +5,7 @@ export function Header() {
       <Link href="/">
         <a className="block font-bold text-lg">Jason Andersen</a>
       </Link>
+      <link rel="icon" type="image/x-icon" href="/favicon.ico"></link>
       <a target="_blank" href="https://twitter.com/jasonrandersen" rel="noopener">Follow Me</a>
     </div>
   );
