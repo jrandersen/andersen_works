@@ -21,7 +21,6 @@ export default function Blog(props) {
       <link rel="icon" type="image/x-icon" href="/favicon.ico"></link>
     </Head>
   );
-
   if (route.startsWith('/blog')) {
     return function Layout({ children }) {
       return (
