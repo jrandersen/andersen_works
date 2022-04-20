@@ -6,6 +6,7 @@ export default function Home(props) {
   return (
     <>
       <Header />
+      <link rel="icon" type="image/x-icon" href="/favicon.ico"></link>
       <div className="max-w-3xl px-8 mx-auto py-4">
         <ul className="space-y-3">
           {posts.posts.map((p) => (
