@@ -18,6 +18,7 @@ export default function Blog(props) {
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@jasonrandersen" />
       <meta property="og:image" content={meta.og} />
+      <link rel="icon" type="image/x-icon" href="/favicon.ico"></link>
     </Head>
   );
 
