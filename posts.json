@@ -2,87 +2,87 @@
   "posts": [
     {
       "slug": "/blog/pointCloudDynamo",
-      "date": "April 26, 2015",
+      "date": "4.26.2015",
       "title": "Pointclouds in Dynamo"
     },
     {
       "slug": "/blog/curtainPanelByLevel",
-      "date": "April 13, 2015",
+      "date": "4.13.2015",
       "title": "Selecting curtain panels by Level"
     },
     {
       "slug": "/blog/panelAreaCalc",
-      "date": "April 7, 2015",
+      "date": "4.7.2015",
       "title": "Light & Air calcs using window area, with Python"
     },
     {
       "slug": "/blog/elevationMarker",
-      "date": "March 30, 2015",
+      "date": "3.30.2015",
       "title": "Get empty elevation markers to delete"
     },
     {
       "slug": "/blog/nestedFamily",
-      "date": "March 29, 2015",
+      "date": "3.29.2015",
       "title": "Manage nested families in revit, with python"
     },
     {
       "slug": "/blog/fireRatingDynamo",
-      "date": "March 22, 2015",
+      "date": "3.22.2015",
       "title": "Manage wall fire rating graphics in Dynamo"
     },
     {
       "slug": "/blog/areasToRooms",
-      "date": "March 16, 2015",
+      "date": "3.16.2015",
       "title": "Group revit rooms by areas in which they are contained"
     },
     {
       "slug": "/blog/revitFilteringDy",
-      "date": "March 16, 2015",
+      "date": "3.16.2015",
       "title": "Revit Filtering with Dynamo"
     },
     {
       "slug": "/blog/revitDataPHPP",
-      "date": "July 18, 2014",
+      "date": "7.18.2014",
       "title": "Revit, Data & PHPP"
     },
     {
       "slug": "/blog/dynamoDataRevit",
-      "date": "May 26, 2014",
+      "date": "5.26.2014",
       "title": "Dynamo, Data & Revit"
     },
     {
       "slug": "/blog/dynamoSheetCounter",
-      "date": "May 9, 2014",
+      "date": "5.9.2014",
       "title": "Dynamo Sheet Counter"
     },
     {
       "slug": "/blog/searchSetsNavis2",
-      "date": "January 14, 2014",
+      "date": "1.14.2014",
       "title": "Search Sets in Navis [Part 2]"
     },
     {
       "slug": "/blog/revitMacroHandedness",
-      "date": "February 09, 2014",
+      "date": "2.09.2014",
       "title": "Macro for setting door handedness"
     },
     {
       "slug": "/blog/searchSetsNavis1",
-      "date": "July 15, 2014",
+      "date": "8.15.2013",
       "title": "Search Sets in Navis [Part 1]"
     },
     {
       "slug": "/blog/lightLSMSHF",
-      "date": "July 15, 2014",
+      "date": "8.15.2013",
       "title": "Light Boxes for LSMSHF"
     },
     {
       "slug": "/blog/futureWeatherData2",
-      "date": "February 24, 2013",
+      "date": "2.24.2013",
       "title": "Future weather data [Part 2]"
     },
     {
       "slug": "/blog/futureWeatherData1",
-      "date": "February 24, 2013",
+      "date": "2.24.2013",
       "title": "Future weather data [Part 1]"
     }
   ]
