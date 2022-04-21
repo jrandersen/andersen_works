@@ -5,6 +5,9 @@ import { Header } from '../components/header';
 export default function Home(props) {
   return (
     <>
+      <Head>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Header />
       <div className="max-w-3xl px-8 mx-auto py-4">
         <ul className="space-y-3">
