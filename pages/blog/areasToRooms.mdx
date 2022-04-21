@@ -2,9 +2,10 @@
 title: Group rooms by revit areas
 slug: /blog/areasToRooms
 ---
-<figure class="video_container">
-  <iframe title="vimeo-player" src="https://player.vimeo.com/video/124577440" width="640" height="360" frameborder="0" allowfullscreen></iframe>
-</figure>
+
+<div class="aspect-w-16 aspect-h-9">
+  <iframe src="https://player.vimeo.com/video/124577440" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 # Group revit rooms by areas in which they are contained
 In this video, I walk through how to find which Rooms are in a specific Revit Area. Using Areas to define space is a common workflow for many architectural projects and the OOTB Revit does not implicitly have a connection between Loadable families and Revit areas, however, there is a good connection between Rooms & Elements. Using Dynamo we find all the Room location points that fall inside a Revit Area then update a Room parameter to reflect the Area‘s number. Once that is done we can then schedule all families by Area using normal Revit schedules.
