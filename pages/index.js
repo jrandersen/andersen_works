@@ -9,7 +9,7 @@ export default function Home(props) {
       <div className="max-w-3xl px-8 mx-auto py-4">
         <ul className="space-y-3">
           {posts.posts.map((p) => (
-            <li key={p.slug} className="flex items-center space-x-3">
+            <li key={p.slug} className="flex items-left space-x-3">
               <span className="block text-gray-500 w-[9.5rem] text-right">
                 {p.date}
               </span>
