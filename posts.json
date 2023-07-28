@@ -1,10 +1,16 @@
 {
   "posts": [
     {
+      "slug": "/blog/projectTasker",
+      "date": "11.15.2020",
+      "title": "+Tasker"
+    },
+    {
       "slug": "/blog/bldgtypPassiveCabin",
       "date": "10.15.2012",
       "title": "bldgtyp Passive Cabin"
-    }, {
+    },
+    {
       "slug": "/blog/commonwealthCoordination",
       "date": "11.15.2011",
       "title": "Commonwealth Coordination"
