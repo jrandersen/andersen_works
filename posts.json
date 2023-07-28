@@ -1,6 +1,11 @@
 {
   "posts": [
     {
+      "slug": "/blog/simpleAirtable",
+      "date": "2.15.2021",
+      "title": "Extract data to Airtable"
+    },
+    {
       "slug": "/blog/pointCloudDynamo",
       "date": "4.26.2015",
       "title": "Pointclouds in Dynamo"
