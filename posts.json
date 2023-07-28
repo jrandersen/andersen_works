@@ -1,6 +1,11 @@
 {
   "posts": [
     {
+      "slug": "/blog/commonwealthCoordination",
+      "date": "11.15.2011",
+      "title": "Commonwealth Coordination"
+    },
+    {
       "slug": "/blog/simpleAirtable",
       "date": "2.15.2021",
       "title": "Extract data to Airtable"
