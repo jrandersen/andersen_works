@@ -1,6 +1,10 @@
 {
   "posts": [
     {
+      "slug": "/blog/bldgtypPassiveCabin",
+      "date": "10.15.2012",
+      "title": "Commonwealth Coordination"
+    }, {
       "slug": "/blog/commonwealthCoordination",
       "date": "11.15.2011",
       "title": "Commonwealth Coordination"
@@ -8,7 +12,7 @@
     {
       "slug": "/blog/simpleAirtable",
       "date": "2.15.2021",
-      "title": "Extract data to Airtable"
+      "title": "Simple Airtable"
     },
     {
       "slug": "/blog/pointCloudDynamo",
