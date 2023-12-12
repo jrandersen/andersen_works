@@ -1,6 +1,11 @@
 {
   "posts": [
     {
+      "slug": "/blog/bimstack",
+      "date": "12.12.2023",
+      "title": "Web Stack eats BIM"
+    },
+    {
       "slug": "/blog/simpleAirtable",
       "date": "2.15.2021",
       "title": "Simple Airtable"
