@@ -1,11 +1,6 @@
 {
   "posts": [
     {
-      "slug": "/blog/bimstackreality",
-      "date": "12.13.2023",
-      "title": "BIM Stack in Reality"
-    },
-    {
       "slug": "/blog/bimstack",
       "date": "11.30.2023",
       "title": "Web Stack eats BIM"
