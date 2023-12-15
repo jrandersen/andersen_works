@@ -1,14 +1,14 @@
 {
   "posts": [
     {
-      "slug": "/blog/proddevpresentation",
-      "date": "09.15.2021",
-      "title": "Product Development Prezo"
-    },
-    {
       "slug": "/blog/bimstack",
       "date": "11.30.2023",
       "title": "Web Stack eats BIM"
+    },
+    {
+      "slug": "/blog/proddevpresentation",
+      "date": "10.15.2021",
+      "title": "Product Development Prezo"
     },
     {
       "slug": "/blog/simpleAirtable",
