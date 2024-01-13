@@ -1,11 +1,6 @@
 {
   "posts": [
     {
-      "slug": "/blog/bimstack",
-      "date": "11.30.2023",
-      "title": "Web Stack eats AEC"
-    },
-    {
       "slug": "/blog/portfolio",
       "date": "11.30.2022",
       "title": "Portfolio"
