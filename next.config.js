@@ -1,4 +1,4 @@
-import rehypeHighlight from 'rehype-highlight';
+// import rehypeHighlight from 'rehype-highlight';
 
 const nextra = require('nextra');
 
@@ -11,10 +11,10 @@ module.exports = nextra('./components/layout.js')({
   },
   options: {
     // remarkGfm adds support for markdown tables
-    remarkPlugins: [],
-    rehypePlugins: [rehypeHighlight],
+    // remarkPlugins: [],
+    // rehypePlugins: [rehypeHighlight],
     // If you use `MDXProvider`, uncomment the following line.
-    providerImportSource: "@mdx-js/react",
+    // providerImportSource: "@mdx-js/react",
   },
   headers() {
     return [
