@@ -1,5 +1,6 @@
-const nextra = require('nextra');
 import rehypeHighlight from 'rehype-highlight';
+
+const nextra = require('nextra');
 
 module.exports = nextra('./components/layout.js')({
   experimental: {
