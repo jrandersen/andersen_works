@@ -1,6 +1,8 @@
 const nextra = require('nextra');
 
 module.exports = nextra('./components/layout.js')({
+  theme: 'nextra-theme-blog',
+  themeConfig: './theme.config.jsx',
   experimental: {
     turboMode: true,
   },
