@@ -1,5 +1,3 @@
-// import rehypeHighlight from 'rehype-highlight';
-
 const nextra = require('nextra');
 
 module.exports = nextra('./components/layout.js')({
@@ -8,13 +6,6 @@ module.exports = nextra('./components/layout.js')({
   },
   images: {
     domains: ['pbs.twimg.com', 'abs.twimg.com'],
-  },
-  options: {
-    // remarkGfm adds support for markdown tables
-    // remarkPlugins: [],
-    // rehypePlugins: [rehypeHighlight],
-    // If you use `MDXProvider`, uncomment the following line.
-    // providerImportSource: "@mdx-js/react",
   },
   headers() {
     return [
