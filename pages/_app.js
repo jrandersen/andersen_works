@@ -1,5 +1,5 @@
 import 'tailwindcss/tailwind.css'
-import '../styles/stackoverflow-dark.min.css';
+import '../public/styles/stackoverflow-dark.css';
 
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />
