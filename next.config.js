@@ -1,8 +1,4 @@
-const nextra = require('nextra')({
-  theme: 'nextra-theme-blog',
-  themeConfig: './theme.config.jsx'
-})
-
+const nextra = require('nextra')
 
 module.exports = nextra('./components/layout.js')({
   experimental: {
